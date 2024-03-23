@@ -1,12 +1,21 @@
-export function App() {
-  return <section className="app">
-    <section className="main-layout">
-      <aside>
-        
-      </aside>
-      <main>
+import {
+  HashRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from "react-router-dom";
+import { EmailIndex } from "./assets/css/pages/EmailIndex";
 
-      </main>
-    </section>
-  </section>;
+export function App() {
+  return (
+    <Router>
+      <section className="app">
+        <Routes>
+          <Route path="/" element={<Navigate to="/email/inbox" replace />} />
+          <Route path="/email/:folderName" element={<EmailIndex />} />
+          {/* Other routes */}
+        </Routes>
+      </section>
+    </Router>
+  );
 }
