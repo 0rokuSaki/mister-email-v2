@@ -5,5 +5,10 @@
 @import "basics/animations.css";
 
 /* Pages */
+@import "pages/email-index.css";
 
 /* Components */
+@import "cmps/email-header.css";
+@import "cmps/search-bar.css";
+@import "cmps/email-main-view.css";
+@import "cmps/email-main-menu.css";

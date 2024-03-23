@@ -1,0 +1,25 @@
+.email-header {
+  display: grid;
+  grid-template-columns: 256px 1fr;
+  padding: 8px;
+}
+
+.main-menu-button {
+  border-radius: 50%;
+  margin: 0 4px;
+  padding: 12px;
+  width: 48px;
+  height: 48px;
+}
+
+.main-menu-button:hover {
+  background-color: var(--hover-color);
+
+  svg {
+    background-color: transparent;
+  }
+}
+
+.main-menu-button:active {
+  background-color: var(--active-color);
+}

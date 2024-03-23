@@ -1,0 +1,38 @@
+.search-bar {
+  background-color: rgba(234,241,251,255);
+  border-radius: 24px;
+  display: grid;
+  grid-template-columns: auto minmax(230px, 626px) auto;
+
+  form {
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: 1 / span 2;
+  }
+
+
+  input[type="text"],
+  input[type="text"]::placeholder {
+    font-size: 1.1em;
+  }
+}
+
+.search-btn {
+  padding: 6px;
+  height: 36px;
+
+  svg {
+    padding: 6px;
+  }
+}
+
+.search-options-btn {
+  height: 46px;
+  width: 56px;
+  padding: 0 5px;
+
+  svg {
+    padding: 8px;
+    margin: 3px;
+  }
+}

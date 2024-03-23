@@ -1,0 +1,5 @@
+.email-index {
+  display: grid;
+  grid-template-rows: 64px 1fr;
+  height: 100%;
+}

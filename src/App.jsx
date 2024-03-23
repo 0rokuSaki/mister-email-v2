@@ -4,7 +4,7 @@ import {
   Routes,
   Navigate,
 } from "react-router-dom";
-import { EmailIndex } from "./assets/css/pages/EmailIndex";
+import { EmailIndex } from "./pages/EmailIndex";
 
 export function App() {
   return (
@@ -12,6 +12,7 @@ export function App() {
       <section className="app">
         <Routes>
           <Route path="/" element={<Navigate to="/email/inbox" replace />} />
+          <Route path="/email" element={<Navigate to="/email/inbox" replace />} />
           <Route path="/email/:folderName" element={<EmailIndex />} />
           {/* Other routes */}
         </Routes>

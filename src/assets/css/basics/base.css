@@ -1,5 +1,7 @@
-* {
-  box-sizing: border-box;
+:root {
+  /* Define CSS variables for hover and active colors */
+  --hover-color: rgba(60, 64, 67, 0.08);
+  --active-color: rgba(60, 64, 67, 0.12);
 }
 
 html {
@@ -45,6 +47,8 @@ a:hover {
 }
 
 button {
+  background-color: transparent;
+  border: none;
   font-family: inherit;
   cursor: pointer;
 
@@ -53,9 +57,36 @@ button {
   }
 }
 
+button:hover {
+  svg {
+    background-color: var(--hover-color);
+  }
+}
+
+button:active {
+  svg {
+    background-color: var(--active-color);
+  }
+}
+
+svg {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+
 input {
   font-family: inherit;
   text-align: inherit;
+}
+
+input[type="text"] {
+  border: none;
+  background-color: transparent;
+}
+
+input[type="text"]:focus {
+  outline: none;
 }
 
 /* MAC like scrollbar */
@@ -79,6 +110,7 @@ input {
 }
 
 .app {
+  background-color: #f6f8fc;
   height: 100dvh;
   max-height: 100dvh;
   min-height: 100dvh;
