@@ -1,7 +1,50 @@
 .email-main-menu {
   width: 256px;
 
-  button {
+  nav {
+    a {
+      background-repeat: no-repeat;
+      background-position: left center;
+      border-radius: 0 16px 16px 0;
+      font-size: 0.9em;
+      height: 32px;
+      width: 84%;
+      padding: 0 0 0 24px;
+    }
+
+    a.active {
+      background-color: #d3e3fd;
+      font-weight: 600;
+    }
+
+    a::before {
+      content: "";
+      background-repeat: no-repeat;
+      display: inline-block;
+      width: 20px; /* Adjust width to fit your background image */
+      height: 20px; /* Adjust height to fit your background image */
+      margin-right: 16px;
+    }
+
+    a.collapsed {
+      border-radius: 50%;
+      width: 32px;
+      padding: 0;
+      margin: 0 0 0 16px;
+      justify-content: center;
+    }
+
+    a.collapsed::before {
+      background-position: center center;
+      margin: 0;
+    }
+  }
+
+  .email-main-menu.collapsed {
+    width: 72px;
+  }
+  
+  .compose-btn {
     background-color: #c2e7ff;
     border-radius: 16px;
     font-size: 0.9em;
@@ -9,18 +52,59 @@
     width: 142px;
     height: 56px;
   }
-}
+  
+  .compose-btn.collapsed {
+    width: 56px;
+  }
+  
+  .compose-btn:hover {
+    box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.302), 0 4px 8px 3px rgba(60, 64, 67, 0.149);
+    transition: box-shadow 0.08s linear, min-width 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    transition-behavior: normal, normal;
+    transition-duration: 0.08s, 0.15s;
+    transition-timing-function: linear, cubic-bezier(0.4, 0, 0.2, 1);
+    transition-delay: 0s, 0s;
+    transition-property: box-shadow, min-width;
+  }
 
-.email-main-menu.collapsed {
-  width: 72px;
-}
+  /* Folder images active/inactive */
+  a.inbox::before {
+    background-image: url("https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/inbox_baseline_nv700_20dp.png");
+  }
 
-.compose-btn:hover {
-  box-shadow: 0 1px 3px 0 rgba(60,64,67,0.302), 0 4px 8px 3px rgba(60,64,67,0.149);
-  transition: box-shadow .08s linear, min-width .15s cubic-bezier(0.4,0,0.2,1);
-  transition-behavior: normal, normal;
-  transition-duration: 0.08s, 0.15s;
-  transition-timing-function: linear, cubic-bezier(0.4, 0, 0.2, 1);
-  transition-delay: 0s, 0s;
-  transition-property: box-shadow, min-width;
+  a.inbox.active::before {
+    background-image: url("https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/inbox_fill_baseline_p900_20dp.png");
+  }
+
+  a.starred::before {
+    background-image: url("https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/star_baseline_nv700_20dp.png");
+  }
+
+  a.starred.active::before {
+    background-image: url("https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/star_fill_baseline_p900_20dp.png");
+  }
+
+  a.sent::before {
+    background-image: url("https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/send_baseline_nv700_20dp.png");
+  }
+
+  a.sent.active::before {
+    background-image: url("https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/send_fill_baseline_p900_20dp.png");
+  }
+
+  a.drafts::before {
+    background-image: url("https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/draft_baseline_nv700_20dp.png");
+  }
+
+  a.drafts.active::before {
+    background-image: url("https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/draft_fill_baseline_p900_20dp.png");
+  }
+
+  a.trash::before {
+    background-image: url("https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/delete_baseline_nv700_20dp.png");
+  }
+
+  a.trash.active::before {
+    background-image: url("https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/delete_fill_baseline_p900_20dp.png");
+  }
 }
