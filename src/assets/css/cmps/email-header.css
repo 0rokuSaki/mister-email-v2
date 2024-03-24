@@ -1,7 +1,19 @@
 .email-header {
   display: grid;
   grid-template-columns: 256px 1fr;
-  padding: 8px;
+
+  .logo {
+    margin-left: 8px;
+
+    a {
+      margin-top: 4px;
+      padding: 0;
+    }
+
+    a:hover {
+      background-color: transparent;
+    }
+  }
 }
 
 .main-menu-button {
