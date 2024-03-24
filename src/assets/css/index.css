@@ -10,5 +10,6 @@
 /* Components */
 @import "cmps/email-header.css";
 @import "cmps/search-bar.css";
+@import "cmps/email-header-nav-bar.css";
 @import "cmps/email-main-view.css";
 @import "cmps/email-main-menu.css";

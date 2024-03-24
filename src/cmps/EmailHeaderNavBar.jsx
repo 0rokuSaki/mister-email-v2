@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export function EmailHeaderNavBar() {
   return (
-    <nav className="flex row align-center space-between">
+    <nav className="email-header-nav-bar">
       <Link className="flex column center">
         <svg
           xmlns="http://www.w3.org/2000/svg"

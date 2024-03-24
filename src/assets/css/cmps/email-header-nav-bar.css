@@ -1,0 +1,7 @@
+.email-header-nav-bar {
+  display: grid;
+  grid-template-columns: repeat(3, 44px);
+  place-items: center;
+  margin-left: auto;
+  padding-left: 24px;
+}
