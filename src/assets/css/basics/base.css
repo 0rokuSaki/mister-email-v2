@@ -40,10 +40,17 @@ a {
   text-decoration: none;
   color: inherit;
   cursor: pointer;
+  border-radius: 50%;
+  margin: 2px;
+  padding: 8px;
 }
 
 a:hover {
-  text-decoration: underline;
+  background-color: var(--hover-color);
+}
+
+a:active {
+  background-color: var(--active-color);
 }
 
 button {
