@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { EmailHeader } from "../cmps/EmailHeader";
+import { EmailMainView } from "../cmps/EmailMainView";
 
 export function EmailIndex() {
-  const [mainMenuViewState, setMainMenuViewState] = useState("open");
+  const [isMainMenuCollapsed, setIsMainMenuCollapsed] = useState(false);
 
   return (
     <section className="email-index">
-      <EmailHeader setMainMenuViewState={setMainMenuViewState}/>
+      <EmailHeader setIsMainMenuCollapsed={setIsMainMenuCollapsed}/>
+      <EmailMainView isMainMenuCollapsed={isMainMenuCollapsed}/>
     </section>
   );
 }

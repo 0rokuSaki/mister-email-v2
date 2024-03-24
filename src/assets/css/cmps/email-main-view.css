@@ -1,8 +1,5 @@
 .email-main-view {
   grid-row: 2 / span 1;
   display: grid;
-  grid-template-rows: subgrid;
-  width: 100%;
-
-  background-color: green;
+  grid-template-columns: auto 1fr auto;
 }

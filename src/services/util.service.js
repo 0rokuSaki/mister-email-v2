@@ -2,7 +2,8 @@
 export const utilService = {
     makeId,
     saveToStorage,
-    loadFromStorage
+    loadFromStorage,
+    capitalizeString,
 }
 
 function makeId(length = 5) {
@@ -21,4 +22,12 @@ function saveToStorage(key, value) {
 function loadFromStorage(key, defaultValue = null) {
     var value = localStorage[key] || defaultValue;
     return JSON.parse(value);
+}
+
+function capitalizeString(str) {
+  // Check if the input string is empty
+  if (!str) return '';
+
+  // Convert the first character to uppercase and the rest to lowercase
+  return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 }

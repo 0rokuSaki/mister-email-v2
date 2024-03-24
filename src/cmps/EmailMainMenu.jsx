@@ -1,29 +1,25 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+
 import { EmailFolderList } from "./EmailFolderList";
 
-export function EmailAside() {
-  const [viewState, setViewState] = useState("open");
+import { utilService } from "../services/util.service";
 
-  function onMainMenuClick() {
-    setViewState(prevViewState => prevViewState === 'open' ? 'collapsed' : 'open');
-  }
-
+export function EmailMainMenu({ isCollapsed }) {
+  const folders = ["inbox", "starred", "sent", "drafts", "trash"];
+  const dynClass = isCollapsed ? "collapsed" : "";
   return (
-    <section className="email-main-menu">
-      <header className="flex align-center">
-        <button onClick={onMainMenuClick}>Main Menu</button>
-        <Link to="/email">
-          <img
-            src="https://ssl.gstatic.com/ui/v1/icons/mail/rfr/logo_gmail_lockup_default_1x_r4.png"
-            alt=""
-          />
-        </Link>
-      </header>
-      <main className={`${viewState}`}>
-        <button className="compose-button">Compose</button>
-        <EmailFolderList />
-      </main>
+    <section className={`email-main-menu flex column ${dynClass}`}>
+      <button className="compose-btn flex align-center space-around m-l8 m-t8">
+        <img src="https://www.gstatic.com/images/icons/material/system_gm/1x/create_black_24dp.png" alt="Pencil Image" />
+        <span className="m-r8">Compose</span>
+      </button>
+      <nav className="flex column">
+        {folders.map((folderName) => (
+          <NavLink key={folderName} to={`/email/${folderName}`}>
+            {utilService.capitalizeString(folderName)}
+          </NavLink>
+        ))}
+      </nav>
     </section>
   );
 }

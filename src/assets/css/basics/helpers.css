@@ -107,6 +107,22 @@
 }
 
 /* Spacing */
+.m-l8 {
+  margin-left: 8px;
+}
+
+.m-r8 {
+  margin-right: 8px;
+}
+
+.m-r4 {
+  margin-right: 4px;
+}
+
+.m-t8 {
+  margin-top: 8px;
+}
+
 .p5 {
   padding: 5px;
 }

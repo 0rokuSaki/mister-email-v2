@@ -1,19 +1,26 @@
 .email-main-menu {
-  grid-column: 1 / span 1;
-  grid-row: 1 / -1;
-  display: grid;
-  grid-template-rows: subgrid;
+  width: 256px;
 
-  background-color: aqua;
-
-  header {
-    grid-row: 1 / span 1;
+  button {
+    background-color: #c2e7ff;
+    border-radius: 16px;
+    font-size: 0.9em;
+    font-weight: 500;
+    width: 142px;
+    height: 56px;
   }
+}
 
-  main {
-    grid-row: 2 / span 1;
-  }
+.email-main-menu.collapsed {
+  width: 72px;
+}
 
-  main.open {
-  }
+.compose-btn:hover {
+  box-shadow: 0 1px 3px 0 rgba(60,64,67,0.302), 0 4px 8px 3px rgba(60,64,67,0.149);
+  transition: box-shadow .08s linear, min-width .15s cubic-bezier(0.4,0,0.2,1);
+  transition-behavior: normal, normal;
+  transition-duration: 0.08s, 0.15s;
+  transition-timing-function: linear, cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 0s, 0s;
+  transition-property: box-shadow, min-width;
 }
