@@ -11,11 +11,10 @@ export function EmailMainMenu({ isCollapsed = false }) {
     setSearchParams({ compose: "new" });
   }
 
-  console.log(searchParams);
-
   const folders = ["inbox", "starred", "sent", "drafts", "trash"];
   const dynClass = isCollapsed ? "collapsed" : "";
   const composeParam = searchParams.get('compose');
+  
   return (
     <section className={`email-main-menu flex column ${dynClass}`}>
       <button className={`compose-btn flex align-center space-around m-l8 m-t8 ${dynClass}`} onClick={onComposeClick}>
