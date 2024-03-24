@@ -1,0 +1,17 @@
+.email-list {
+  grid-column: 2 / span 1;
+  background-color: #fff;
+  border-radius: 16px;
+  display: grid;
+  grid-template-columns: 28px 64px minmax(100px, 200px) minmax(200px, 1fr) 256px;
+  overflow: scroll;
+}
+
+.email-list a {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: subgrid;
+  text-decoration: none;
+  height: 40px;
+  max-height: 40px;
+}

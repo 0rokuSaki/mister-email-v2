@@ -1,0 +1,55 @@
+.email-preview {
+  border-bottom: 1px solid gray;
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: subgrid;
+  gap: 8px;
+  align-items: center;
+}
+
+.email-preview:hover {
+  box-shadow: inset 1px 0 0 #dadce0, inset -1px 0 0 #dadce0,
+    0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+  cursor: pointer;
+  z-index: 2;
+
+  .date-wrapper {
+    display: none;
+  }
+
+  .action-buttons-wrapper {
+    grid-column: 5 / span 1;
+    display: flex;
+    margin-left: auto;
+    gap: 8px;
+  }
+}
+
+.email-preview .from-wrapper {
+  grid-column: 3 / span 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.email-preview .subject-wrapper {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.email-preview .date-wrapper {
+  grid-column: 5 / span 1;
+  margin-right: 16px;
+  text-align: right;
+}
+
+.email-preview .action-buttons-wrapper {
+  text-align: right;
+  margin-right: 16px;
+  display: none;
+}
+
+.email-preview.unread {
+  font-weight: bold;
+}

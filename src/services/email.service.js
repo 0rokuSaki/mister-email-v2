@@ -21,13 +21,13 @@ const loggedInUser = {
 
 const STORAGE_KEY = "emails";
 
-//_createEmails();
+_createEmails();
 
-async function query(filterBy) {
+async function query(filterBy, folder) {
   let emails = await storageService.query(STORAGE_KEY);
-  if (filterBy) {
+  if (filterBy && folder) {
     emails = emails
-      .filter((email) => isEmailMatchingFilter(email, filterBy))
+      .filter((email) => isEmailMatchingFilter(email, folder, filterBy))
       .sort((a, b) => {
         if (filterBy.sortBy === "date") {
           return b.sentAt - a.sentAt;
@@ -116,8 +116,8 @@ function getFilterFromParams(searchParams) {
   return filterBy;
 }
 
-function isEmailMatchingFilter(email, filterBy) {
-  const { txt, isRead, folder } = filterBy;
+function isEmailMatchingFilter(email, folder, filterBy) {
+  const { txt, isRead } = filterBy;
 
   // Check if text matches
   if (
@@ -194,25 +194,28 @@ function _generateRandomEmail() {
   const threeYearsAgo = now - 3 * 365 * 24 * 60 * 60 * 1000; // Three years ago in milliseconds
 
   const isReceived = Math.random() < 0.5;
-  const timestamp = new Date(threeYearsAgo + Math.random() * (now - threeYearsAgo)); // Random timestamp between now and three years ago
+  const timestamp = threeYearsAgo + Math.random() * (now - threeYearsAgo); // Random timestamp between now and three years ago
   const id = utilService.makeId(6);
   const subject = `${loremIpsumSentences[Math.floor(Math.random() * loremIpsumSentences.length)]} ${
-    emojis[Math.floor(Math.random() * emojis.length)]
-  }`;
+    Math.random() < 0.25 ? emojis[Math.floor(Math.random() * emojis.length)] : ""
+  }`; // Include emoji 25% of the time
   const body = `${loremIpsumParagraph.trim().replace(/\n\s*/g, "\n")} ${
-    emojis[Math.floor(Math.random() * emojis.length)]
-  }`; // Add emoji to the end of the body
+    Math.random() < 0.25 ? emojis[Math.floor(Math.random() * emojis.length)] : ""
+  }`; // Include emoji 25% of the time
 
+  const isRead = Math.random() < 0.5;
+  const isStarred = Math.random() < 0.15;
   const sentAt = isReceived ? null : timestamp;
   const receivedAt = isReceived ? timestamp : null;
-  const removedAt = timestamp.getTime() + Math.floor(Math.random() * 10000); // Random removedAt time, larger than other timestamps
+  const removedAtProbability = Math.random();
+  const removedAt = removedAtProbability < 0.1 ? now + Math.floor(Math.random() * 10000) : null; // Set removedAt 10% of the time
 
   const email = {
     id,
     subject,
     body,
-    isRead: false,
-    isStarred: false,
+    isRead,
+    isStarred,
     sentAt,
     receivedAt,
     savedAt: null,
@@ -226,11 +229,26 @@ function _generateRandomEmail() {
 
 function _generateRandomEmailAddress() {
   const usernames = [
-    "YoGangsta69420", "Puki", "PokeLoke", "Baconator", "SassyPants",
-    "FunkyMonkey", "SugarPlum", "NinjaTaco", "CrazyCatLady", "JellyBean",
-    "BubbleWrapMaster", "PizzaPirate", "TacoSupreme", "CaptainCrunch",
-    "CheeseburgerChamp", "SillyGoose", "SmoothieKing", "CookieMonster",
-    "DancingQueen", "GigglyPuff"
+    "YoGangsta69420",
+    "Puki",
+    "PokeLoke",
+    "Baconator",
+    "SassyPants",
+    "FunkyMonkey",
+    "SugarPlum",
+    "NinjaTaco",
+    "CrazyCatLady",
+    "JellyBean",
+    "BubbleWrapMaster",
+    "PizzaPirate",
+    "TacoSupreme",
+    "CaptainCrunch",
+    "CheeseburgerChamp",
+    "SillyGoose",
+    "SmoothieKing",
+    "CookieMonster",
+    "DancingQueen",
+    "GigglyPuff",
   ];
 
   const domains = ["gmail", "yahoo", "hotmail", "outlook", "aol", "icloud", "protonmail", "mail", "yandex", "zoho"];

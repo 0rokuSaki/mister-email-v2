@@ -127,12 +127,20 @@
   margin-right: 4px;
 }
 
+.m-r16 {
+  margin-right: 16px;
+}
+
 .m-t8 {
   margin-top: 8px;
 }
 
 .m-t16 {
   margin-top: 16px;
+}
+
+.m-b16 {
+  margin-bottom: 16px;
 }
 
 .p-l24 {
@@ -161,6 +169,11 @@
 
 .m20 {
   margin: 20px;
+}
+
+/* Border */
+.br16 {
+  border-radius: 16px;
 }
 
 /* Normalize Background */
